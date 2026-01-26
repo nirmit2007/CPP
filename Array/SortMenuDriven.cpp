@@ -126,9 +126,7 @@ void removeDuplicate(int a[], int n)
             }
         }
     }  
-    cout << "Array without duplicates : ";
-    cout << a[0] << " ";
-
+    cout << "Array After remove duplicates";
     for(int i=1;i<n;i++)
     {
         if(a[i] != a[i-1])
