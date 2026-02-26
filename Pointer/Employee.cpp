@@ -6,9 +6,6 @@ Display employee having highest salary using pointer.
 #include<iostream>
 using namespace std;
 
-#include<iostream>
-using namespace std;
-
 struct Employee
 {
     int e_id;
@@ -25,8 +22,7 @@ int main()
 
     for(i = 0; i < 5; i++)
     {
-        cout << "Enter employee id, name and salary of employee "
-             << i+1 << ": ";
+        cout << "Enter employee id, name and salary of employee "<< i+1 << ": ";
         cin >> (p+i)->e_id >> (p+i)->name >> (p+i)->salary;
     }
 

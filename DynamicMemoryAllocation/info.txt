@@ -1,0 +1,136 @@
+Dynamic Memory Allocation in C
+
+Dynamic Memory Allocation (DMA) means allocating memory during program execution (runtime). Unlike static memory allocation (where memory size is fixed at compile time), dynamic memory allows the programmer to allocate memory as needed.
+
+Dynamic memory is allocated from the heap section of memory using special functions provided in the standard library.
+
+Header file required:
+
+#include <stdlib.h>
+
+Need of Dynamic Memory Allocation
+
+When the size of data is not known at compile time.
+
+When memory requirement changes during execution.
+
+To efficiently use memory.
+
+Used in data structures like linked list, stack, queue, tree, and graph.
+
+Memory Layout of C Program
+
+Memory in C is divided into:
+
+Text/Code Segment – Stores program instructions.
+
+Data Segment – Stores global and static variables.
+
+Stack – Stores local variables and function calls.
+
+Heap – Used for dynamic memory allocation.
+
+Dynamic memory is allocated in the heap area.
+
+malloc() Function
+
+malloc stands for “memory allocation”. It is used to allocate a block of memory at runtime.
+
+Syntax:
+
+pointer = (data_type*) malloc(size_in_bytes);
+
+
+Example:
+
+int *p;
+p = (int*) malloc(5 * sizeof(int));
+
+
+This allocates memory for 5 integers.
+
+Important Points About malloc()
+
+Allocates memory from heap.
+
+Returns a void pointer.
+
+Returns NULL if memory allocation fails.
+
+Allocated memory contains garbage values.
+
+Memory must be released using free().
+
+Example Program Using malloc()
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n, i;
+    int *p;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    p = (int*) malloc(n * sizeof(int));
+
+    if(p == NULL)
+    {
+        printf("Memory allocation failed");
+        return 0;
+    }
+
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &p[i]);
+    }
+
+    printf("Elements are:\n");
+    for(i = 0; i < n; i++)
+    {
+        printf("%d ", p[i]);
+    }
+
+    free(p);
+
+    return 0;
+}
+
+free() Function
+
+The free() function is used to release dynamically allocated memory.
+
+Syntax:
+
+free(pointer);
+
+
+If free() is not used, it causes memory leak.
+
+Difference Between malloc() and calloc()
+
+malloc():
+
+Allocates a single block of memory.
+
+Does not initialize memory (contains garbage values).
+
+Syntax: malloc(size)
+
+calloc():
+
+Allocates multiple blocks of memory.
+
+Initializes memory with zero.
+
+Syntax: calloc(number_of_blocks, size_of_each_block)
+
+Example:
+
+p = (int*) calloc(5, sizeof(int));
+
+Conclusion
+
+Dynamic Memory Allocation allows flexible memory usage during runtime. The malloc() function allocates memory from the heap, and free() must be used to release it. Proper use of dynamic memory helps in efficient memory management and is essential for implementing dynamic data structures.
