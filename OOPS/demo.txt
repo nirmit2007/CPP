@@ -1,0 +1,242 @@
+/*
+class : blueprint  of  object .  
+object : instance  of  class. 
+
+ex : 1 
+
+fruits : 
+    apple banana orange chiku mango 
+
+========================================================================
+
+access specifier : 
+1. public  : accessible from anywhere
+2. private : within class only  
+3. protected : within class and sub-class  (inheritance)
+
+========================================================================
+
+4 pillar : 
+
+1. inheritance : 
+    a.single b.multiple c.multi level d.hiechical e.hybrid  ==> virtual  inheritance 
+2. encapsulation :
+    a.get method b.set method 
+3. polymorphism :
+    a.method overloading ==> compile time polymorphism
+    b.method overriding  ==> run time polymorphism
+4. abstraction : 
+    a.abtract method 
+    b.abstract class
+*/
+
+// ex :1 public 
+/*
+#include <iostream>
+using namespace std;
+class student 
+{
+    public :
+        int rollno;
+        string name;
+        //int  rollno=1;  // rollno name  ==> data member 
+        //string name="nirmit"; 
+
+    void input()
+    {
+        cout<<"enter rollno : ";
+        cin>>rollno;
+        cout<<"enter name : ";
+        cin>>name;
+    }
+    void show()
+    {
+        cout<<"rollno is  : "<<rollno<<endl;
+        cout<<"name is : "<<name<<endl;
+    }
+};
+int main()
+{
+    student s1;  // s1 is object of class student
+    // cout<<"rollno is  : "<<s1.rollno<<endl;
+    // cout<<"name is : "<<s1.name<<endl;
+    s1.input();  // 1  bhavya 
+    s1.show();
+    s1.name ="henil";
+    s1.rollno=23;
+    s1.show();
+    return 0; 
+}
+*/
+
+// ex : 2 private
+/*
+#include <iostream>
+using namespace std;
+class student 
+{
+    private :
+        string name="ram"; 
+        int age=56;
+
+    void show()
+    {
+        cout<<"age is : "<<age<<endl;
+        cout<<"name is : "<<name<<endl;
+    }
+    public : 
+        void display()
+        {
+            name ="sita"; 
+            age=23;
+            show(); 
+        }
+};
+int main()
+{
+    student s1; 
+    // cout<<"age is : "<<s1.age<<endl; not accessible  bcz of  private . 
+    // cout<<"name is : "<<s1.name<<endl;
+    // s1.show();
+    // s1.display();
+    // s1.name ="henil";  // not update bcz  of  private. 
+    // s1.age=23;
+    s1.display();
+    return 0; 
+}
+*/
+// b 2   b 2    h 2   j 2     a 2     s unique1    n 2    sh 2    dev 2 
+
+
+// ex :3 protected
+/*
+#include <iostream>
+using namespace std;
+class student  // base 
+{
+    protected :
+        string name="ram";
+        int age =56; 
+};
+class teacher :  public student     // derived
+{
+    public : 
+        void show()
+        {
+            name ="sita";
+            age =34; 
+            cout<<"age is : "<<age<<endl;
+            cout<<"name is : "<<name<<endl;
+        }
+} ;
+int main()
+{
+    student s1; 
+    // cout<<"age is : "<<s1.age<<endl; // not accessible bcz of protected
+    // cout<<"name is : "<<s1.name<<endl;
+    teacher t1; 
+    t1.show(); 
+    return 0; 
+
+}
+*/
+
+/*
+task  :1 generate  pin  
+deposit  and  withdraw ==> verify pin  
+*/
+
+// constructor  : automatically called when object is created
+/*
+1. no return type. 
+2. class name =constructor name 
+type  : 
+
+1. default constructor
+2. parameterized constructor
+3. non parameterized constructor
+4. copy constructor
+5. constructor overloading
+*/
+
+// ex :1 default constructor
+/*
+#include <iostream>
+using namespace std;
+class student 
+{
+    public : 
+        student()
+        {
+            cout<<"default constructor called"<<endl;
+        }
+};
+int main()
+{
+    student s1; 
+    return 0;
+}
+*/ 
+
+// ex :2 non  parameterized constructor
+/*
+#include <iostream>
+using namespace std;
+class student 
+{
+    public : 
+        int rollno; 
+        string name; 
+        student()
+        {
+            name ="ram"; 
+            rollno=1;
+            cout<<"non parameterized constructor called"<<endl;
+        }
+        void show()
+        {
+            cout<<"rollno is  : "<<rollno<<endl;
+            cout<<"name is : "<<name<<endl;
+        }
+};
+int main()
+{
+    student s1; 
+    s1.show(); 
+    return 0;
+}
+*/ 
+// ex :3 parameterized constructor
+
+#include <iostream>
+using namespace std;
+class student 
+{
+    public : 
+        int rollno; 
+        string name; 
+    student(int  r ,string n) 
+    {
+        rollno=r;
+        name=n;
+        cout<<"parameterized constructor called"<<endl;
+    }
+    void show()
+    {
+        cout<<"rollno is  : "<<rollno<<endl;
+        cout<<"name is : "<<name<<endl;
+    }
+};
+int main()
+{
+    student s1(1,"ram");
+    s1.show(); 
+    return 0;
+}
+
+/*
+task  :2 above  program using  constructor  
+1. login 
+2. password 
+3. menudriven 
+*/
