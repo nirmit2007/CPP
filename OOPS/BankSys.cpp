@@ -82,7 +82,8 @@ public:
         if (validatePassword(new_password))
         {
             password = new_password;
-            cout << "Password successfully changed to: " << password << endl;
+            cout << "Password successfully changed!" << endl;
+            cout << "New Password: " << password << endl;
         }
         else
         {
@@ -130,7 +131,7 @@ int main()
     int acc;
     string passw;
 
-    bank b1(4352, "Nirmit@1610", 25000);  
+    bank b1(4352, "Nirmit@16", 25000);  
 
     cout << "BANK DETAILS" << endl;
     cout << "enter the account number : ";
